@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+include_once ('simple_html_dom.php');
+$maxPages = 10;
+for ($i = 1; $i <= $maxPages; $i++) {
+$html = file_get_html('https://stagebank-hbo-ict.irp.nl/internships/?page=' .$i. '');
+$url = "https://stagebank-hbo-ict.irp.nl/";
+foreach($html->find('p') as $element){
+    echo $url . $element->innertext;
+    echo "<br>"; // the content in all the p tags
+}
+}
+
+?>
+</body>
+</html>m
+
